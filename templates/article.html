@@ -1,0 +1,8 @@
+{%extends 'layout.html' %}
+{% block body %}
+<div class="jumbotron">
+    <h1 class="display-4">Article NO_{{article['id']}}</h1>
+    {{article}} 
+    <td><a class="btn btn-primary btn" href="/articles" role="button">돌아가기</a></td>
+</div>
+{% endblock %}
