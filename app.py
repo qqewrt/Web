@@ -19,15 +19,42 @@ app.debug = True
 
 @app.route('/register', methods = ['GET', 'POST'])
 def register():
-    name = request.form['name']
-    email = request.form['email']
-    password = request.form['password']
-    password_1 = sha256_crypt.encrypt("1234")
-    print(password_1)
-    print(sha256_crypt.verify("1234", password_1))
+    if request.method == 'POST':
+        name = request.form['name']
+        email = request.form['email']
+        username = request.form['username']
+        password = request.form['password']
+        password = sha256_crypt.encrypt(password)
+        # print(password_1)
+        # print(sha256_crypt.verify("1234", password_1))
+        sql = f"SELECT email FROM users WHERE email = '{email}'"
 
-    # print(name,email,password)
-    return "SUCCESS"
+        cur.execute(sql)
+
+        db.commit()
+
+        user_email = cur.fetchone()
+        
+        if user_email == None:
+            query = f"INSERT INTO users (name, email, username, password) VALUES('{name}','{email}','{username}','{password}')"
+            
+            cur.execute(query)
+
+            db.commit()
+            return redirect('/login')
+        else:
+            return redirect('/register')
+    else:
+        return render_template('register.html')
+
+@app.route('/login', methods=['GET','POST'])
+def login():
+    if request.method == 'POST':
+        
+        return "SUCCESS"
+
+    else:
+        return render_template('login.html')
 
 
 @app.route('/', methods=['GET','POST'])

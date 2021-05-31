@@ -1,0 +1,12 @@
+{%extends 'layout.html' %}
+    {% block body %}
+    <div class="jumbotron">
+        <h1 class="display-4">로그인</h1>
+        <form action="/login" method="POST">
+            아이디 : <input type="email" name="email" placeholder="가입시 이메일"><br>
+            패스워드 : <input type="password" name="password"><br>
+            <input type="submit" value="로그인" class="btn btn-primary btn">
+        </form>
+        <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+    </div>
+{% endblock %}
