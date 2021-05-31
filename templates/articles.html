@@ -15,12 +15,13 @@
         <tbody>
             {% for article in articles %}
             <tr>
-                <td>{{article['id']}}</td>
-                <td><a href="/article/{{article['id']}}" target="_blank">{{article['title']}}</a></td>
-                <td>{{article['author']}}</td>
-                <td>{{article['create_date']}}</td>
-                <td><a class="btn btn-warning btn" href="#" role="button">EDIT</a></td>
-                <td><a class="btn btn-danger btn" href="#" role="button">DELETE</a></td>
+                <td>{{article[0]}}</td>
+                <td><a href="/article/{{article[0]}}">{{article[1]}}</a></td>
+                <td>{{article[3]}}</td>
+                <td>{{article[4]}}</td>
+                <td><a class="btn btn-warning btn" href="/article/{{article[0]}}/edit" role="button">EDIT</a></td>
+                <td><a class="btn btn-danger btn" href="/article/{{article[0]}}/delete"
+                     role="button">DELETE</a></td>
             </tr>
             {% endfor %}
         </tbody>
