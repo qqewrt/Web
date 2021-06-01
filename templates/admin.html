@@ -1,0 +1,35 @@
+{%extends 'layout.html' %}
+{% block body %}
+<div class="jumbotron">
+    <h1 class="display-4">Admin</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>NAME</th>
+                <th>EMAIL</th>
+                <th>USERNAME</th>
+                <th>EDIT</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for user_lists in user_lists %}
+            <tr>
+                <td>{{user_lists[0]}}</a></td>
+                <td>{{user_lists[1]}}</a></td>
+                <td>{{user_lists[2]}}</td>
+                <td>{{user_lists[3]}}</td>
+                <td><a class="btn btn-warning btn" href="/admin/{{user_lists[0]}}/edit" role="button">변경</a></td>
+                <td><a class="btn btn-danger btn" href="/admin/{{user_lists[0]}}/delete"
+                     role="button">삭제</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+        <tfoot>
+        </tfoot>
+	</table>
+    <p></p>
+    <td><a class="btn btn-primary btn" href="/" role="button">홈으로</a></td>
+
+</div>
+{% endblock %}

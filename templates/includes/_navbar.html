@@ -14,9 +14,18 @@
       <li class="nav-item">
         <a class="nav-link" href="/articles">Articles</a>
       </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/admin">Admin</a>
+      </li>
     </ul>
-
+    {% if user_name %}
+    <span>반갑습니다 {{user_name}}님</span>
+    <a class="btn btn-secondary btn" href="/logout" role="button">Logout</a>
+    {% else %}
+    <span>게스트입니다</span>
     <td><a class="btn btn-danger btn" href="/login" role="button">SignIn</a></td>
     <td><a class="btn btn-success btn" href="/register" role="button">SignUp</a></td>
+    {% endif %}
+    
   </div>
 </nav>
